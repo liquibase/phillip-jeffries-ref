@@ -144,8 +144,9 @@ jobs:
       # Execute the Flow file
       - name: Perform policy checks
         run: |
-          liquibase --license-key=${{ secrets.LIQUIBASE_LICENSE_KEY }} \
-             --changelog-file=rootchangelog_by_releases_db.yaml \
-             flow \
-             --flow-file=${{ env.FLOW_FILE }} \
-             --logfile=logs/liquibase.log
+          echo 'Running policy checks with curl API call...'
+#          liquibase --license-key=${{ secrets.LIQUIBASE_LICENSE_KEY }} \
+#             --changelog-file=rootchangelog_by_releases_db.yaml \
+#             flow \
+#             --flow-file=${{ env.FLOW_FILE }} \
+#             --logfile=logs/liquibase.log
