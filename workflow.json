@@ -1,0 +1,720 @@
+{
+  "workflow_name": "Implementation Guide Code Test",
+  "workflow_enabled": true,
+  "workflow_project_id": 33,
+  "workflow_order": 0,
+  "workflow_id": 42,
+  "workflow_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+  "workflow_created_date": "2025-02-11T15:50:55.621Z",
+  "workflow_modified_date": "2025-02-11T15:51:18.000Z",
+  "workflow_connections": [
+    {
+      "connection_id": 50,
+      "connection_connection_type_id": 1,
+      "connection_name": "postgres_on_roderick.liquibase.net",
+      "connection_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+      "connection_created_date": "2025-02-11T15:37:09.732Z",
+      "connection_modified_date": "2025-02-11T15:37:09.732Z",
+      "connection_usage": 1,
+      "connection_type": {
+        "connection_type_id": 1,
+        "connection_type_name": "PostgreSQL",
+        "connection_type_group": "database",
+        "connection_attributes": [
+          {
+            "connection_attribute_id": 1,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Database URL",
+            "connection_attribute_options": "jdbc:postgresql://",
+            "connection_attribute_order": 1,
+            "connection_attribute_width": "full",
+            "connection_attribute_input": "url",
+            "connection_attribute_liquibase_option": "LIQUIBASE_COMMAND_URL",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          },
+          {
+            "connection_attribute_id": 40,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Configured using",
+            "connection_attribute_options": "URL,HOST",
+            "connection_attribute_order": 0,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "radio",
+            "connection_attribute_liquibase_option": "",
+            "connection_attribute_is_required": false,
+            "connection_attribute_is_hidden": false
+          },
+          {
+            "connection_attribute_id": 4,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "integer",
+            "connection_attribute_name": "Port",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 3,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          },
+          {
+            "connection_attribute_id": 5,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Database Name",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 4,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          },
+          {
+            "connection_attribute_id": 6,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Password",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 7,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "LIQUIBASE_COMMAND_PASSWORD",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": true
+          },
+          {
+            "connection_attribute_id": 2,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Username",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 6,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "LIQUIBASE_COMMAND_USERNAME",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          },
+          {
+            "connection_attribute_id": 3,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Hostname",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 2,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          }
+        ]
+      },
+      "connection_metadata": [
+        {
+          "connection_metadata_connection_id": 50,
+          "connection_metadata_connection_attribute_id": 40,
+          "connection_metadata_id": 151,
+          "connection_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "connection_metadata_name": "5805f8a2-038a-4ec4-9bb3-91906724b53d/33af66b2-7905-4dd6-9fbc-2409b2b9a5a7",
+          "connection_metadata_display": "URL",
+          "connection_metadata_created_date": "2025-02-11T15:37:09.732Z",
+          "connection_metadata_modified_date": "2025-02-11T15:37:09.732Z",
+          "connection_attribute": {
+            "connection_attribute_id": 40,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Configured using",
+            "connection_attribute_options": "URL,HOST",
+            "connection_attribute_order": 0,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "radio",
+            "connection_attribute_liquibase_option": "",
+            "connection_attribute_is_required": false,
+            "connection_attribute_is_hidden": false
+          }
+        },
+        {
+          "connection_metadata_connection_id": 50,
+          "connection_metadata_connection_attribute_id": 1,
+          "connection_metadata_id": 152,
+          "connection_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "connection_metadata_name": "5805f8a2-038a-4ec4-9bb3-91906724b53d/12b396ee-6e9f-47f0-bee1-ff965825ab89",
+          "connection_metadata_display": "jdbc:postgresql://roderick.liquibase.net:5433/postgres",
+          "connection_metadata_created_date": "2025-02-11T15:37:09.732Z",
+          "connection_metadata_modified_date": "2025-02-11T15:37:09.732Z",
+          "connection_attribute": {
+            "connection_attribute_id": 1,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Database URL",
+            "connection_attribute_options": "jdbc:postgresql://",
+            "connection_attribute_order": 1,
+            "connection_attribute_width": "full",
+            "connection_attribute_input": "url",
+            "connection_attribute_liquibase_option": "LIQUIBASE_COMMAND_URL",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          }
+        },
+        {
+          "connection_metadata_connection_id": 50,
+          "connection_metadata_connection_attribute_id": 2,
+          "connection_metadata_id": 153,
+          "connection_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "connection_metadata_name": "5805f8a2-038a-4ec4-9bb3-91906724b53d/b453a727-a630-47b7-a8c9-a6c79cab877c",
+          "connection_metadata_display": "postgres",
+          "connection_metadata_created_date": "2025-02-11T15:37:09.732Z",
+          "connection_metadata_modified_date": "2025-02-11T15:37:09.732Z",
+          "connection_attribute": {
+            "connection_attribute_id": 2,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Username",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 6,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "LIQUIBASE_COMMAND_USERNAME",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": false
+          }
+        },
+        {
+          "connection_metadata_connection_id": 50,
+          "connection_metadata_connection_attribute_id": 6,
+          "connection_metadata_id": 154,
+          "connection_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "connection_metadata_name": "5805f8a2-038a-4ec4-9bb3-91906724b53d/baae5496-9154-4ad7-a971-bd57cd40ec91",
+          "connection_metadata_display": "s******et",
+          "connection_metadata_created_date": "2025-02-11T15:37:09.732Z",
+          "connection_metadata_modified_date": "2025-02-11T15:37:09.732Z",
+          "connection_attribute": {
+            "connection_attribute_id": 6,
+            "connection_attribute_connection_type_id": 1,
+            "connection_attribute_type": "string",
+            "connection_attribute_name": "Password",
+            "connection_attribute_options": "",
+            "connection_attribute_order": 7,
+            "connection_attribute_width": "half",
+            "connection_attribute_input": "text",
+            "connection_attribute_liquibase_option": "LIQUIBASE_COMMAND_PASSWORD",
+            "connection_attribute_is_required": true,
+            "connection_attribute_is_hidden": true
+          }
+        }
+      ],
+      "connection_tags": []
+    }
+  ],
+  "workflow_resources": [
+    {
+      "resource_id": 20,
+      "resource_resource_remote_id": 1,
+      "resource_connection_id": null,
+      "resource_name": "Implementation Guide SQL",
+      "resource_type": "ChangeLog",
+      "resource_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+      "resource_created_date": "2025-02-11T15:42:25.851Z",
+      "resource_modified_date": "2025-02-11T15:42:25.851Z",
+      "resource_metadata": [
+        {
+          "resource_metadata_resource_id": 20,
+          "resource_metadata_resource_attribute_id": 1,
+          "resource_metadata_value": "https://github.com/liquibase/cs-impl-guide-examples-sql",
+          "resource_metadata_id": 55,
+          "resource_metadata_user_uuid": "00000000-0000-0000-0000-000000000000",
+          "resource_metadata_created_date": "2025-02-11T15:42:25.851Z",
+          "resource_metadata_modified_date": "2025-02-11T15:42:25.851Z",
+          "resource_attribute": {
+            "resource_attribute_id": 1,
+            "resource_attribute_resource_remote_id": 1,
+            "resource_attribute_type": "string",
+            "resource_attribute_name": "Git Repository URL",
+            "resource_attribute_description": "A Valid Git URL",
+            "resource_attribute_default": null,
+            "resource_attribute_options": null,
+            "resource_attribute_is_required": true,
+            "resource_attribute_liquibase_option": "LIQUIBASE_SEARCH_PATH",
+            "resource_attribute_order": 0,
+            "resource_attribute_width": "full",
+            "resource_attribute_input": "text"
+          }
+        },
+        {
+          "resource_metadata_resource_id": 20,
+          "resource_metadata_resource_attribute_id": 2,
+          "resource_metadata_value": "sqlcode_by_objects_schema/rootchangelog.yaml",
+          "resource_metadata_id": 56,
+          "resource_metadata_user_uuid": "00000000-0000-0000-0000-000000000000",
+          "resource_metadata_created_date": "2025-02-11T15:42:25.851Z",
+          "resource_metadata_modified_date": "2025-02-11T15:42:25.851Z",
+          "resource_attribute": {
+            "resource_attribute_id": 2,
+            "resource_attribute_resource_remote_id": 1,
+            "resource_attribute_type": "string",
+            "resource_attribute_name": "Changelog File Path",
+            "resource_attribute_description": null,
+            "resource_attribute_default": null,
+            "resource_attribute_options": null,
+            "resource_attribute_is_required": true,
+            "resource_attribute_liquibase_option": "LIQUIBASE_CHANGELOG_FILE",
+            "resource_attribute_order": 1,
+            "resource_attribute_width": "full",
+            "resource_attribute_input": "text"
+          }
+        },
+        {
+          "resource_metadata_resource_id": 20,
+          "resource_metadata_resource_attribute_id": 3,
+          "resource_metadata_value": "main",
+          "resource_metadata_id": 57,
+          "resource_metadata_user_uuid": "00000000-0000-0000-0000-000000000000",
+          "resource_metadata_created_date": "2025-02-11T15:42:25.851Z",
+          "resource_metadata_modified_date": "2025-02-11T15:42:25.851Z",
+          "resource_attribute": {
+            "resource_attribute_id": 3,
+            "resource_attribute_resource_remote_id": 1,
+            "resource_attribute_type": "string",
+            "resource_attribute_name": "Reference",
+            "resource_attribute_description": "Can be specified as ref name (refs/heads/main), branch name (main) or tag name (v1.2.3)",
+            "resource_attribute_default": null,
+            "resource_attribute_options": null,
+            "resource_attribute_is_required": false,
+            "resource_attribute_liquibase_option": "LIQUIBASE_GIT_BRANCH",
+            "resource_attribute_order": 2,
+            "resource_attribute_width": "full",
+            "resource_attribute_input": "text"
+          }
+        }
+      ],
+      "resource_tags": []
+    }
+  ],
+  "workflow_stages": [
+    {
+      "stage_workflow_id": 42,
+      "stage_order": 0,
+      "stage_name": "Premier",
+      "stage_type": "premier",
+      "stage_id": 39,
+      "stage_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+      "stage_created_date": "2025-02-11T15:51:59.811Z",
+      "stage_modified_date": "2025-02-11T15:51:59.811Z",
+      "stage_actions": [
+        {
+          "action_action_type_id": 2,
+          "action_stage_id": 39,
+          "action_order": 0,
+          "action_name": "Run checks",
+          "action_check_type_id": 111,
+          "action_command_type_id": null,
+          "action_id": 115,
+          "action_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "action_created_date": "2025-02-11T15:52:02.260Z",
+          "action_modified_date": "2025-02-11T15:52:02.260Z",
+          "check_type": {
+            "check_type_description": "This check triggers when a changeset does not have a rollback defined.",
+            "check_type_action_type_id": 2,
+            "check_type_id": 111,
+            "check_type_name": "RollbackRequired",
+            "check_liquibase_version": "4.29.1",
+            "check_is_liquibase_latest": true,
+            "check_attributes": [
+              {
+                "check_attribute_id": 368,
+                "check_attribute_check_type_id": 111,
+                "check_attribute_type": "string",
+                "check_attribute_name": "SEVERITY",
+                "check_attribute_description": "Check Severity Level",
+                "check_attribute_default": "INFO",
+                "check_attribute_options": "INFO, MINOR, MAJOR, CRITICAL, BLOCKER",
+                "check_attribute_allow_empty": false,
+                "check_attribute_order": 0,
+                "check_attribute_width": "full",
+                "check_attribute_input": "dropdown"
+              }
+            ]
+          },
+          "check_metadata": [
+            {
+              "check_metadata_action_id": 115,
+              "check_metadata_check_attribute_id": 368,
+              "check_metadata_value": "INFO",
+              "check_metadata_id": 42,
+              "check_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "check_metadata_created_date": "2025-02-11T15:52:02.260Z",
+              "check_metadata_modified_date": "2025-02-11T15:52:02.260Z",
+              "check_attribute": {
+                "check_attribute_id": 368,
+                "check_attribute_check_type_id": 111,
+                "check_attribute_type": "string",
+                "check_attribute_name": "SEVERITY",
+                "check_attribute_description": "Check Severity Level",
+                "check_attribute_default": "INFO",
+                "check_attribute_options": "INFO, MINOR, MAJOR, CRITICAL, BLOCKER",
+                "check_attribute_allow_empty": false,
+                "check_attribute_order": 0,
+                "check_attribute_width": "full",
+                "check_attribute_input": "dropdown"
+              }
+            }
+          ],
+          "command_metadata": []
+        },
+        {
+          "action_action_type_id": 1,
+          "action_stage_id": 39,
+          "action_order": 1,
+          "action_name": "Update the DB",
+          "action_check_type_id": null,
+          "action_command_type_id": 138,
+          "action_id": 116,
+          "action_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "action_created_date": "2025-02-11T15:52:32.741Z",
+          "action_modified_date": "2025-02-11T15:52:32.741Z",
+          "command_type": {
+            "command_type_action_type_id": 1,
+            "command_type_id": 138,
+            "command_type_name": "update",
+            "command_liquibase_version": "4.29.1",
+            "command_is_liquibase_latest": true,
+            "command_type_description_short": "Deploy any changes in the changelog file that have not been deployed",
+            "command_type_description_long": "",
+            "command_attributes": [
+              {
+                "command_attribute_id": 625,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Context Filter",
+                "command_attribute_description": "Changeset contexts to match",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_CONTEXT_FILTER",
+                "command_attribute_order": 0,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              },
+              {
+                "command_attribute_id": 626,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Label Filter",
+                "command_attribute_description": "Changeset labels to match",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_LABEL_FILTER",
+                "command_attribute_order": 1,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              },
+              {
+                "command_attribute_id": 627,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "boolean",
+                "command_attribute_name": "Rollback On Error",
+                "command_attribute_description": "If set to true and any changeset in a deployment fails, then the update operation stops, and liquibase attempts to rollback all changesets just deployed. A changeset marked \"fail-on-error=false\" does not trigger as an error, therefore rollback-on-error will not occur. Additionally, if a changeset is not auto-rollback compliant or does not have a rollback script, then no rollback-on-error will occur for any changeset.",
+                "command_attribute_default": "false",
+                "command_attribute_options": "true, false",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_ROLLBACK_ON_ERROR",
+                "command_attribute_order": 2,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              },
+              {
+                "command_attribute_id": 628,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Show Summary",
+                "command_attribute_description": "Type of update results summary to show.  Values can be 'off', 'summary', or 'verbose'.",
+                "command_attribute_default": "SUMMARY",
+                "command_attribute_options": "OFF, SUMMARY, VERBOSE",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_SHOW_SUMMARY",
+                "command_attribute_order": 3,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              },
+              {
+                "command_attribute_id": 629,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Show Summary Output",
+                "command_attribute_description": "Summary output to report update summary results. Values can be 'log', 'console', or 'all'.",
+                "command_attribute_default": "ALL",
+                "command_attribute_options": "LOG, CONSOLE, ALL",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_SHOW_SUMMARY_OUTPUT",
+                "command_attribute_order": 4,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              }
+            ]
+          },
+          "check_metadata": [],
+          "command_metadata": [
+            {
+              "command_metadata_action_id": 116,
+              "command_metadata_command_attribute_id": 625,
+              "command_metadata_value": "",
+              "command_metadata_id": 358,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:32.741Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:32.741Z",
+              "command_attribute": {
+                "command_attribute_id": 625,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Context Filter",
+                "command_attribute_description": "Changeset contexts to match",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_CONTEXT_FILTER",
+                "command_attribute_order": 0,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              }
+            },
+            {
+              "command_metadata_action_id": 116,
+              "command_metadata_command_attribute_id": 626,
+              "command_metadata_value": "",
+              "command_metadata_id": 359,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:32.741Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:32.741Z",
+              "command_attribute": {
+                "command_attribute_id": 626,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Label Filter",
+                "command_attribute_description": "Changeset labels to match",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_LABEL_FILTER",
+                "command_attribute_order": 1,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              }
+            },
+            {
+              "command_metadata_action_id": 116,
+              "command_metadata_command_attribute_id": 627,
+              "command_metadata_value": "false",
+              "command_metadata_id": 360,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:32.741Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:32.741Z",
+              "command_attribute": {
+                "command_attribute_id": 627,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "boolean",
+                "command_attribute_name": "Rollback On Error",
+                "command_attribute_description": "If set to true and any changeset in a deployment fails, then the update operation stops, and liquibase attempts to rollback all changesets just deployed. A changeset marked \"fail-on-error=false\" does not trigger as an error, therefore rollback-on-error will not occur. Additionally, if a changeset is not auto-rollback compliant or does not have a rollback script, then no rollback-on-error will occur for any changeset.",
+                "command_attribute_default": "false",
+                "command_attribute_options": "true, false",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_ROLLBACK_ON_ERROR",
+                "command_attribute_order": 2,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              }
+            },
+            {
+              "command_metadata_action_id": 116,
+              "command_metadata_command_attribute_id": 628,
+              "command_metadata_value": "SUMMARY",
+              "command_metadata_id": 361,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:32.741Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:32.741Z",
+              "command_attribute": {
+                "command_attribute_id": 628,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Show Summary",
+                "command_attribute_description": "Type of update results summary to show.  Values can be 'off', 'summary', or 'verbose'.",
+                "command_attribute_default": "SUMMARY",
+                "command_attribute_options": "OFF, SUMMARY, VERBOSE",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_SHOW_SUMMARY",
+                "command_attribute_order": 3,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              }
+            },
+            {
+              "command_metadata_action_id": 116,
+              "command_metadata_command_attribute_id": 629,
+              "command_metadata_value": "ALL",
+              "command_metadata_id": 362,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:32.741Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:32.741Z",
+              "command_attribute": {
+                "command_attribute_id": 629,
+                "command_attribute_command_type_id": 138,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Show Summary Output",
+                "command_attribute_description": "Summary output to report update summary results. Values can be 'log', 'console', or 'all'.",
+                "command_attribute_default": "ALL",
+                "command_attribute_options": "LOG, CONSOLE, ALL",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_SHOW_SUMMARY_OUTPUT",
+                "command_attribute_order": 4,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              }
+            }
+          ]
+        },
+        {
+          "action_action_type_id": 1,
+          "action_stage_id": 39,
+          "action_order": 2,
+          "action_name": "Print status",
+          "action_check_type_id": null,
+          "action_command_type_id": 134,
+          "action_id": 117,
+          "action_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+          "action_created_date": "2025-02-11T15:52:53.018Z",
+          "action_modified_date": "2025-02-11T15:52:53.018Z",
+          "command_type": {
+            "command_type_action_type_id": 1,
+            "command_type_id": 134,
+            "command_type_name": "status",
+            "command_liquibase_version": "4.29.1",
+            "command_is_liquibase_latest": true,
+            "command_type_description_short": "Generate a list of pending changesets",
+            "command_type_description_long": "",
+            "command_attributes": [
+              {
+                "command_attribute_id": 616,
+                "command_attribute_command_type_id": 134,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Context Filter",
+                "command_attribute_description": "Context string to use for filtering",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_CONTEXT_FILTER",
+                "command_attribute_order": 0,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              },
+              {
+                "command_attribute_id": 617,
+                "command_attribute_command_type_id": 134,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Label Filter",
+                "command_attribute_description": "Label expression to use for filtering",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_LABEL_FILTER",
+                "command_attribute_order": 1,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              },
+              {
+                "command_attribute_id": 618,
+                "command_attribute_command_type_id": 134,
+                "command_attribute_type": "boolean",
+                "command_attribute_name": "Verbose",
+                "command_attribute_description": "Verbose flag with optional values of 'True' or 'False'. The default is 'True'.",
+                "command_attribute_default": "true",
+                "command_attribute_options": "true, false",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_VERBOSE",
+                "command_attribute_order": 2,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              }
+            ]
+          },
+          "check_metadata": [],
+          "command_metadata": [
+            {
+              "command_metadata_action_id": 117,
+              "command_metadata_command_attribute_id": 616,
+              "command_metadata_value": "",
+              "command_metadata_id": 363,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:53.018Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:53.018Z",
+              "command_attribute": {
+                "command_attribute_id": 616,
+                "command_attribute_command_type_id": 134,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Context Filter",
+                "command_attribute_description": "Context string to use for filtering",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_CONTEXT_FILTER",
+                "command_attribute_order": 0,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              }
+            },
+            {
+              "command_metadata_action_id": 117,
+              "command_metadata_command_attribute_id": 617,
+              "command_metadata_value": "",
+              "command_metadata_id": 364,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:53.018Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:53.018Z",
+              "command_attribute": {
+                "command_attribute_id": 617,
+                "command_attribute_command_type_id": 134,
+                "command_attribute_type": "string",
+                "command_attribute_name": "Label Filter",
+                "command_attribute_description": "Label expression to use for filtering",
+                "command_attribute_default": "",
+                "command_attribute_options": "",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_LABEL_FILTER",
+                "command_attribute_order": 1,
+                "command_attribute_width": "full",
+                "command_attribute_input": "text"
+              }
+            },
+            {
+              "command_metadata_action_id": 117,
+              "command_metadata_command_attribute_id": 618,
+              "command_metadata_value": "true",
+              "command_metadata_id": 365,
+              "command_metadata_user_uuid": "c1187735-d544-4b9a-8ca3-99d2fb95b6eb",
+              "command_metadata_created_date": "2025-02-11T15:52:53.018Z",
+              "command_metadata_modified_date": "2025-02-11T15:52:53.018Z",
+              "command_attribute": {
+                "command_attribute_id": 618,
+                "command_attribute_command_type_id": 134,
+                "command_attribute_type": "boolean",
+                "command_attribute_name": "Verbose",
+                "command_attribute_description": "Verbose flag with optional values of 'True' or 'False'. The default is 'True'.",
+                "command_attribute_default": "true",
+                "command_attribute_options": "true, false",
+                "command_attribute_is_required": false,
+                "command_attribute_liquibase_option": "LIQUIBASE_COMMAND_VERBOSE",
+                "command_attribute_order": 2,
+                "command_attribute_width": "full",
+                "command_attribute_input": "dropdown"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
