@@ -42,7 +42,7 @@ on:
 #####################################################################
 env:
 
-LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
+  LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
 
 jobs:
   ####################################################################
