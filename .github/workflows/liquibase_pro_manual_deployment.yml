@@ -29,14 +29,18 @@ env:
 
   LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
 
+  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
+
+  IO_TOKEN_OPERATOR: ${{ secrets.IO_TOKEN_OPERATOR }}
+
 jobs:
   ####################################################################
   # Initialization runs first because it has no 'needs' value.
   ####################################################################
   init:
     name: Initialization
-    # This runs on a ubuntu-latest runner with Liquibase preinstalled.
-    runs-on: [ubuntu-latest]
+    # This runs on a self-hosted runner with Liquibase preinstalled.
+    runs-on: [self-hosted]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
 
@@ -69,7 +73,7 @@ jobs:
   liquibase-deployment:
     name: Database Deployment
     needs: [init]
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
 
     environment: ${{needs.init.outputs.environment}}
 

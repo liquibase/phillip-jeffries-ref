@@ -27,8 +27,11 @@ on:
 #####################################################################
 env:
 
-
   LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
+
+  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
+
+  IO_TOKEN_OPERATOR: ${{ secrets.IO_TOKEN_OPERATOR }}
 
 jobs:
   ####################################################################
@@ -36,8 +39,8 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    # This runs on a ubuntu-latest runner with Liquibase preinstalled.
-    runs-on: [ubuntu-latest]
+    # This runs on a self-hosted runner with Liquibase preinstalled.
+    runs-on: [self-hosted]
 
     # From init, we output the environment determined during the set-environment step below
     outputs:
@@ -70,7 +73,7 @@ jobs:
   ####################################################################
   print-environment:
     name: Environment information
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: [init]
     steps:
       - env:
@@ -85,7 +88,7 @@ jobs:
   liquibase-deployment:
     name: Database Deployment
     needs: [init, print-environment]
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
 
     environment: ${{needs.init.outputs.environment}}
 
