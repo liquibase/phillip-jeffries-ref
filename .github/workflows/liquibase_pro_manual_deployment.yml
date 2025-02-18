@@ -35,8 +35,8 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    # This runs on a ubuntu-latest runner with Liquibase preinstalled.
-    runs-on: [ubuntu-latest]
+    # This runs on a self-hosted runner with Liquibase preinstalled.
+    runs-on: [self-hosted]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
 
@@ -69,7 +69,7 @@ jobs:
   liquibase-deployment:
     name: Database Deployment
     needs: [init]
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
 
     environment: ${{needs.init.outputs.environment}}
 
