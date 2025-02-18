@@ -88,4 +88,5 @@ jobs:
       - name: Perform policy checks
         run: |
           echo 'Running workflow as job with curl API call (stubbed)...'
-#          lbio workflow run {id} [--dispatch]
+          pwd
+          lbio workflow run 42 --dispatch
