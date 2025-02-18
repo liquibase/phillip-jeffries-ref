@@ -78,7 +78,7 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    runs-on: [ ubuntu-latest ]
+    runs-on: [ self-hosted ]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
 
@@ -109,7 +109,7 @@ jobs:
   checkout-repo:
     name: Check out repositories
     needs: [init]
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
 
     steps:
       # Check out the database change configuration code and workflows
@@ -128,7 +128,7 @@ jobs:
   #########################################################################
   liquibase-rollback-action:
     name: Roll back one Liquibase update
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: [checkout-repo, init]
 
     environment: ${{ inputs.environment }}
