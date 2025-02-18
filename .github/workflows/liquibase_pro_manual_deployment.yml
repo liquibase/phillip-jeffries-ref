@@ -1,9 +1,8 @@
 #####################################################################
-#  GitHub Action to perform manual deployment of database
-#  changes using Liquibase Pro, Liquibase Pro Flows, and Custom
-#  Policy checks.
+#  GitHub Action to perform manual deployment of database changes
+#  using Liquibase IO
 #####################################################################
-name: 'Liquibase Pro Deployment Workflow'
+name: 'Liquibase IO Manual Deployment Workflow'
 run-name: Deployment of ${{github.ref}} to ${{ inputs.environment }} by ${{ github.actor }}
 
 on:
@@ -27,40 +26,8 @@ on:
 #  Set up the environment
 #####################################################################
 env:
-  # The top level Flow File that gets cloned into the workspace from
-  # the Liquibase Configuration Repo which orchestrates the database changes.
-  # See https://docs.liquibase.com/commands/flow/flow.html
-  FLOW_FILE: "flowfiles/liquibase-postmerge.flowfile.yaml"
 
-  # The Liquibase Search Path controls how Liquibase finds it's configurations.
-  # To ensure the correct config gets located first, keep "." at the end of this path.
-  # See https://docs.liquibase.com/concepts/changelogs/how-liquibase-finds-files.html
-  LIQUIBASE_SEARCH_PATH: "liquibase-sql/sqlcode_by_releases_db,."
-
-  # Location of the Custom Policy Checks settings file from the Liquibase Configuration Repo.
-  # See https://docs.liquibase.com/liquibase-pro/policy-checks/custom-policy-checks/home.html
-  LIQUIBASE_COMMAND_CHECKS_SETTINGS_FILE: "policychecks/liquibase.checks-settings.conf"
-
-  # Store the Liquibase Pro License key in a Github Action Repository Secret. The
-  # same license key is used for all executions, so it is tracked at the repository level
-  # See https://docs.liquibase.com/workflows/liquibase-pro/how-to-apply-your-liquibase-pro-license-key.html
-  LIQUIBASE_LICENSE_KEY: ${{ secrets.LIQUIBASE_PRO_LICENSE_KEY }}
-
-  # JDBC URL of the database per environment. Based on the incoming branch (one of DEV, QA, or PROD),
-  # the corresponding secret will be taken from the Environment secrets.
-  # See https://docs.liquibase.com/workflows/liquibase-community/using-jdbc-url-in-liquibase.html
-  LIQUIBASE_COMMAND_URL: ${{ secrets.LIQUIBASE_COMMAND_URL }}
-
-  # Credentials for the environment's database. Based on the incoming branch (one of DEV, QA, or PROD),
-  # the corresponding secrets will be taken from the Environment secrets.
-  # See https://docs.liquibase.com/parameters/command-parameters.html
-  LIQUIBASE_COMMAND_USERNAME: ${{ secrets.LIQUIBASE_COMMAND_USERNAME }}
-  LIQUIBASE_COMMAND_PASSWORD: ${{ secrets.LIQUIBASE_COMMAND_PASSWORD }}
-
-  # Logging Settings
-  # See https://docs.liquibase.com/parameters/log-format.html
-  LIQUIBASE_LOG_FORMAT: JSON
-  LIQUIBASE_LOG_LEVEL: INFO
+  LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
 
 jobs:
   ####################################################################
@@ -68,8 +35,8 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    # This runs on a self-hosted runner with Liquibase preinstalled.
-    runs-on: [self-hosted]
+    # This runs on a ubuntu-latest runner with Liquibase preinstalled.
+    runs-on: [ubuntu-latest]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
 
@@ -94,25 +61,6 @@ jobs:
             echo "environment=PROD" >> $GITHUB_OUTPUT
           fi
 
-  ###################################################################
-  #  Check out the source code
-  ####################################################################
-  checkout-repo:
-    name: Check out repositories
-    needs: [init]
-    runs-on: [self-hosted]
-
-    steps:
-      # Check out the database change configuration code and workflows
-      - name: Checkout Database Change Configuration repo
-        uses: actions/checkout@v3
-
-      # Check out the SQL Repo to a folder, "liquibase-sql"
-      - name: Checkout Database Change SQL repo
-        uses: actions/checkout@v4
-        with:
-          repository: liquibase/cs-impl-guide-examples-sql
-          path: liquibase-sql
 
   ####################################################################
   #  Perform the Database change control operations specified
@@ -120,17 +68,14 @@ jobs:
   #####################################################################
   liquibase-deployment:
     name: Database Deployment
-    needs: [init, checkout-repo]
-    runs-on: [self-hosted]
+    needs: [init]
+    runs-on: [ubuntu-latest]
 
     environment: ${{needs.init.outputs.environment}}
 
     steps:
-      # Execute the Flow file
-      - name: Run flow
+      # Create a job from the workflow using the LBIO CLI:
+      - name: Run deployment
         run: |
-          liquibase --license-key=${{ env.LIQUIBASE_LICENSE_KEY }} \
-             --changelog-file=rootchangelog_by_releases_db.yaml \
-             flow \
-             --flow-file=${{ env.FLOW_FILE }} \
-             --logfile=logs/liquibase.log
+          echo 'Running workflow as job with curl API call (stubbed)...'
+#          lbio workflow run {id} [--dispatch]
