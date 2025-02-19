@@ -80,7 +80,7 @@ jobs:
 
     steps:
 
-      # Create a job from the workflow using the LBIO CLI:
+      # Create a job from the workflow using the LBIO CLI
       - name: Perform policy checks
         run: |
           echo 'Running workflow as job with curl API call (stubbed)...'
