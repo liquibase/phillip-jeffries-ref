@@ -25,11 +25,9 @@ on:
 #####################################################################
 env:
 
-  LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
+  LBIO_API_URL: "https://demo.liquibase.xyz/api/"
 
-  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
-
-  IO_TOKEN_OPERATOR: ${{ secrets.IO_TOKEN_OPERATOR }}
+  LBIO_ACCESS_TOKEN: ${{ secrets.IO_TOKEN_OPERATOR }}
 
 jobs:
   ####################################################################
