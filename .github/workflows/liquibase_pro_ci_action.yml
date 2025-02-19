@@ -83,8 +83,10 @@ jobs:
       # Create a job from the workflow using the LBIO CLI
       - name: Perform policy checks
         run: |
-          echo 'Running workflow as job with curl API call (stubbed)...'
+          echo 'Current Working Directory'
           pwd
+          echo 'Copying config'
           cp /home/centos/lbio_cli/liquibase-io-config.yaml .
+          echo 'Running workflow as job with curl API call (stubbed)...'
           lbio workflow run 42 --dispatch 
 
