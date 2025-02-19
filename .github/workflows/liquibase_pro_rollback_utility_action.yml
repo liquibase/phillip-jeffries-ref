@@ -42,7 +42,11 @@ on:
 #####################################################################
 env:
 
-  LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
+  LBIO_API_URL: "https://demo.liquibase.xyz/api/"
+
+#  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
+
+  LBIO_ACCESS_TOKEN: ${{ secrets.IO_TOKEN_OPERATOR }}
 
 jobs:
   ####################################################################
@@ -50,7 +54,7 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    runs-on: [ ubuntu-latest ]
+    runs-on: [ self-hosted ]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
 
@@ -81,7 +85,7 @@ jobs:
   checkout-repo:
     name: Check out repositories
     needs: [init]
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
 
     steps:
       # Check out the database change configuration code and workflows
@@ -100,7 +104,7 @@ jobs:
   #########################################################################
   liquibase-rollback-action:
     name: Roll back one Liquibase update
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: [checkout-repo, init]
 
     environment: ${{ inputs.environment }}

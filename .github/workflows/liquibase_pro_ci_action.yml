@@ -27,6 +27,9 @@ env:
 
   LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
 
+  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
+
+  IO_TOKEN_OPERATOR: ${{ secrets.IO_TOKEN_OPERATOR }}
 
 jobs:
   ####################################################################
@@ -34,9 +37,9 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    # TODO This runs on a ubuntu-latest runner with Liquibase preinstalled.
+    # TODO This runs on a self-hosted runner with Liquibase preinstalled.
     # TODO In the future this will be a self-hosted runner for IO
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
 
@@ -61,7 +64,7 @@ jobs:
   ####################################################################
   print-environment:
     name: Environment information
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
     needs: [init]
     steps:
       - env:
@@ -75,7 +78,7 @@ jobs:
   liquibase-checks:
     name: Run Custom Policy Checks in Liquibase.io
     needs: [init, print-environment]
-    runs-on: [ubuntu-latest]
+    runs-on: [self-hosted]
 
     environment: ${{needs.init.outputs.environment}}
 
@@ -85,4 +88,5 @@ jobs:
       - name: Perform policy checks
         run: |
           echo 'Running workflow as job with curl API call (stubbed)...'
-#          lbio workflow run {id} [--dispatch]
+          pwd
+          lbio workflow run 42 --dispatch
