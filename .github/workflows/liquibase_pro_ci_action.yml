@@ -89,4 +89,4 @@ jobs:
         run: |
           echo 'Running workflow as job with curl API call (stubbed)...'
           pwd
-          lbio workflow run 42 --dispatch
+          lbio workflow run 42 --dispatch 
