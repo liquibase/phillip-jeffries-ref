@@ -37,8 +37,6 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    # TODO This runs on a self-hosted runner with Liquibase preinstalled.
-    # TODO In the future this will be a self-hosted runner for IO
     runs-on: [self-hosted]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
