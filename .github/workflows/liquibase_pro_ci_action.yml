@@ -25,11 +25,9 @@ on:
 #####################################################################
 env:
 
-  LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
+  LBIO_API_URL: "https://demo.liquibase.xyz/api/"
 
-  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
-
-  IO_TOKEN_OPERATOR: ${{ secrets.IO_TOKEN_OPERATOR }}
+  LBIO_ACCESS_TOKEN: ${{ secrets.IO_TOKEN_OPERATOR }}
 
 jobs:
   ####################################################################
@@ -37,8 +35,6 @@ jobs:
   ####################################################################
   init:
     name: Initialization
-    # TODO This runs on a self-hosted runner with Liquibase preinstalled.
-    # TODO In the future this will be a self-hosted runner for IO
     runs-on: [self-hosted]
     outputs:
       environment: ${{ steps.set-environment.outputs.environment }}
@@ -84,9 +80,11 @@ jobs:
 
     steps:
 
-      # Create a job from the workflow using the LBIO CLI:
+      # Create a job from the workflow using the LBIO CLI
       - name: Perform policy checks
         run: |
           echo 'Running workflow as job with curl API call (stubbed)...'
           pwd
+          cp /home/centos/lbio_cli/liquibase-io-config.yaml .
           lbio workflow run 42 --dispatch 
+
