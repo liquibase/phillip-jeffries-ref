@@ -85,4 +85,6 @@ jobs:
         run: |
           echo 'Running workflow as job with curl API call (stubbed)...'
           pwd
+          cp /home/centos/lbio_cli/liquibase-io-config.yaml .
           lbio workflow run 42 --dispatch 
+
