@@ -79,25 +79,6 @@ jobs:
             echo "environment=PROD" >> $GITHUB_OUTPUT
           fi
 
-  ###################################################################
-  #  Check out the source code
-  ####################################################################
-  checkout-repo:
-    name: Check out repositories
-    needs: [init]
-    runs-on: [self-hosted]
-
-    steps:
-      # Check out the database change configuration code and workflows
-      - name: Checkout Database Change Configuration repo
-        uses: actions/checkout@v3
-
-      # Check out the SQL Repo to a folder, "liquibase-sql"
-      - name: Checkout Database Change SQL repo
-        uses: actions/checkout@v4
-        with:
-          repository: liquibase/cs-impl-guide-examples-sql
-          path: liquibase-sql
 
   #########################################################################
   #  Roll back
@@ -105,7 +86,7 @@ jobs:
   liquibase-rollback-action:
     name: Roll back one Liquibase update
     runs-on: [self-hosted]
-    needs: [checkout-repo, init]
+    needs: [init]
 
     environment: ${{ inputs.environment }}
 
@@ -113,5 +94,9 @@ jobs:
       # Create a job from the workflow using the LBIO CLI:
       - name: Run rollback
         run: |
-          echo 'Running workflow as job with curl API call (stubbed)...'
-#          lbio workflow run {id} [--dispatch]
+          echo 'Current Working Directory'
+          pwd
+          echo 'Checking runner'
+          lbio runner check
+          echo 'Running workflow as job with curl API call...'
+          lbio workflow run 42 --dispatch
