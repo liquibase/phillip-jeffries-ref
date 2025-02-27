@@ -27,11 +27,9 @@ on:
 #####################################################################
 env:
 
-  LIQUIBASE_IO_API_URL: "https://demo.liquibase.xyz/api/"
+  LBIO_API_URL: "https://demo.liquibase.xyz/api/"
 
-  IO_TOKEN_VIEWER: ${{ secrets.IO_TOKEN_VIEWER }}
-
-  IO_TOKEN_OPERATOR: ${{ secrets.IO_TOKEN_OPERATOR }}
+  LBIO_ACCESS_TOKEN: ${{ secrets.IO_TOKEN_OPERATOR }}
 
 jobs:
   ####################################################################
@@ -81,5 +79,9 @@ jobs:
       # Create a job from the workflow using the LBIO CLI:
       - name: Run deployment
         run: |
-          echo 'Running workflow as job with curl API call (stubbed)...'
-#          lbio workflow run {id} [--dispatch]
+          echo 'Current Working Directory'
+          pwd
+          echo 'Checking runner'
+          lbio runner check
+          echo 'Running workflow as job with curl API call...'
+          lbio workflow run 42 --dispatch 
