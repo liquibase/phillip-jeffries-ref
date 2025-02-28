@@ -78,6 +78,7 @@ jobs:
     steps:
       # Create a job from the workflow using the LBIO CLI:
       - name: Run deployment
+        working-directory:  /home/centos/phillip-jeffries-runner/io-working-directory
         run: |
           echo 'Unsetting LIQUIBASE_SCRIPT_PYTHON_EXECUTABLE_PATH'
           unset LIQUIBASE_SCRIPT_PYTHON_EXECUTABLE_PATH
